@@ -1,0 +1,26 @@
+{
+  "hasher": {
+    "address": "0xBa984e32A70a88Dab80D2a9Cda5e184b20ebC226",
+    "transactionHash": "0x23933f2f338a28af703762cdd4ff5a5453e814886df0029dcb7383ac35383749"
+  },
+  "verifier": {
+    "address": "0x429D21326ccAbc7138E20A0253Bd6e77415eDb0e",
+    "transactionHash": "0x4fd6e302c8015af3b7afa16638b002f0eff556ad7cb732084574a757f047b60d"
+  },
+  "upgradeable-bnbtyphoon-1": {
+    "address": "0x7614b03E26DFddbFF01AB52185F5DCfef8aA6237",
+    "transactionHash": "0xfd81099a45b76e01c2ffea08d58361b129d5856d799acd54985534d2046571f9"
+  },
+  "upgradeable-bnbtyphoon-10": {
+    "address": "0x4b28295Db5c23fE869164028d8D5065B68E816D4",
+    "transactionHash": "0xa4e4b4eb5cfd90b9a794118de1d1095bacd0ee06b8eceedac689722d83b579e7"
+  },
+  "upgradeable-bnbtyphoon-100": {
+    "address": "0xd365786452397c31DD3B21497BA9761A9d2E07A0",
+    "transactionHash": "0x9b45c6a0ae0127f7e1e7dc673078f5d9d3c92a8fb813d81e7ea93c7971fa0d24"
+  },
+  "upgradeable-bnbtyphoon-0.1": {
+    "address": "0xd9597fc8b8CFD643Ed0E16dDeDC82D4f71642417",
+    "transactionHash": "0x109482ac6abd07332cab569bdb03d937108945d6c6c04ebd47ff72ee737907ca"
+  }
+}
