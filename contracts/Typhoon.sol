@@ -31,6 +31,31 @@ abstract contract Typhoon is MerkleTreeWithHistory {
     _;
   }
 
+  uint256 private constant _NOT_ENTERED = 0;
+  uint256 private constant _ENTERED = 1;
+  uint256 private _status;
+
+  /**
+   * @dev Prevents a contract from calling itself, directly or indirectly.
+   * Calling a `nonReentrant` function from another `nonReentrant`
+   * function is not supported. It is possible to prevent this from happening
+   * by making the `nonReentrant` function external, and make it call a
+   * `private` function that does the actual work.
+   */
+  modifier nonReentrant() {
+    // On the first call to nonReentrant, _notEntered will be true
+    require(_status != _ENTERED, "ReentrancyGuard: reentrant call");
+
+    // Any calls to nonReentrant after this point will fail
+    _status = _ENTERED;
+
+    _;
+
+    // By storing the original value once again, a refund is triggered (see
+    // https://eips.ethereum.org/EIPS/eip-2200)
+    _status = _NOT_ENTERED;
+  }
+
   event Deposit(bytes32 indexed commitment, uint32 leafIndex, uint256 timestamp);
   event Withdrawal(address to, bytes32 nullifierHash, address indexed relayer, uint256 fee);
 
@@ -55,6 +80,7 @@ abstract contract Typhoon is MerkleTreeWithHistory {
 
     // 0.10% = 10bp
     fee = 10;
+    _status = _NOT_ENTERED;
   }
 
   function calculateFee(uint256 amount) internal view returns (uint256) {
@@ -72,10 +98,10 @@ abstract contract Typhoon is MerkleTreeWithHistory {
   }
 
   /**
-    @dev Deposit funds into the contract. The caller must send (for ETH) or approve (for ERC20) value equal to or `denomination` of this instance.
+    @dev Deposit funds into the contract. The caller must send (for BNB) or approve (for BEP20) value equal to or `denomination` of this instance.
     @param _commitment the note commitment, which is PedersenHash(nullifier + secret)
   */
-  function deposit(bytes32 _commitment) external payable {
+  function deposit(bytes32 _commitment) external payable nonReentrant {
     require(!commitments[_commitment], "the commitment has been submitted");
 
     uint32 insertedIndex = _insert(_commitment);
@@ -104,7 +130,7 @@ abstract contract Typhoon is MerkleTreeWithHistory {
     address payable _relayer,
     uint256 _fee,
     uint256 _refund
-  ) external payable {
+  ) external payable nonReentrant {
     require(_fee <= denomination, "fee exceeds transfer value");
     require(!nullifierHashes[_nullifierHash], "the note has been already spent");
     require(isKnownRoot(_root), "cannot find your merkle root"); // Make sure to use a recent one
