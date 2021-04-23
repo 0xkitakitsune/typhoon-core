@@ -22,5 +22,20 @@
   "upgradeable-bnbtyphoon-0.1": {
     "address": "0xd9597fc8b8CFD643Ed0E16dDeDC82D4f71642417",
     "transactionHash": "0x109482ac6abd07332cab569bdb03d937108945d6c6c04ebd47ff72ee737907ca"
+  "upgradeable-busd-typhoon-10": {
+    "address": "0xB8BcFb7D484C3C6f491DdC7d570F37b6729D7f83",
+    "transactionHash": "0x5e113527d4e79746492ca81d2dfd8b391e94c0880ea34ba4b401f4989eb92057"
+  },
+  "upgradeable-busd-typhoon-100": {
+    "address": "0x06CaE8a0518d9C97Cf3697c9751aBAa41cd7d6f4",
+    "transactionHash": "0x7ea848bc5b85db715241a44774f3444450de303dad770a547035948db7f57386"
+  },
+  "upgradeable-busd-typhoon-1000": {
+    "address": "0xC6C574bAde6137EFE2f34bf974bCE6eEcEF0E9A1",
+    "transactionHash": "0x35e5aac6967db3c54b5ff87bdd6d8897497f463177201630f10619dfac92f74b"
+  },
+  "upgradeable-busd-typhoon-10000": {
+    "address": "0xc7679788002290DF2c84bdB3669f377c000D36C8",
+    "transactionHash": "0x5bac073bc5a3ab6de1bb7e7035d28817df4f7a2ed61e896ef8e8f325d123284f"
   }
 }
